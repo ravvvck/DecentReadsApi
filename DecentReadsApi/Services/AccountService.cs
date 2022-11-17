@@ -23,11 +23,11 @@ namespace DecentReadsApi.Services
 
     public class AccountService : IAccountService
     {
-        private readonly GoodreadsDbContext context;
+        private readonly DecentReadsDbContext context;
         private readonly Microsoft.AspNetCore.Identity.IPasswordHasher<User> passwordHasher;
         private readonly AuthenticationSettings authenticationSettings;
 
-        public AccountService(GoodreadsDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings)
+        public AccountService(DecentReadsDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings)
         {
             this.context = context;
             this.passwordHasher = passwordHasher;

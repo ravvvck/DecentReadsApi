@@ -16,11 +16,11 @@ namespace DecentReadsApi.Services
 
     public class AuthorService : IAuthorService
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ILogger<BookService> logger;
 
-        public AuthorService(GoodreadsDbContext dbContext, IMapper mapper, ILogger<BookService> logger)
+        public AuthorService(DecentReadsDbContext dbContext, IMapper mapper, ILogger<BookService> logger)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;

@@ -4,9 +4,9 @@ namespace DecentReadsApi
 {
     public class DecentReadsSeeder
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
 
-        public DecentReadsSeeder(GoodreadsDbContext dbContext)
+        public DecentReadsSeeder(DecentReadsDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

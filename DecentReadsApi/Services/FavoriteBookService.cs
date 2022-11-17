@@ -15,11 +15,11 @@ namespace DecentReadsApi.Services
 
     public class FavoriteBookService : IFavoriteBookService
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
 
         private readonly IMapper mapper;
 
-        public FavoriteBookService(GoodreadsDbContext dbContext, IMapper mapper)
+        public FavoriteBookService(DecentReadsDbContext dbContext, IMapper mapper)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;

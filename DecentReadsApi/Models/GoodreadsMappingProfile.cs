@@ -6,9 +6,9 @@ namespace DecentReadsApi.Models
 {
     public class GoodreadsMappingProfile : Profile
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
 
-        public GoodreadsMappingProfile(GoodreadsDbContext dbContext)
+        public GoodreadsMappingProfile(DecentReadsDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

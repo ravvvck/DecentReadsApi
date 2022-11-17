@@ -15,10 +15,10 @@ namespace DecentReadsApi.Controllers
 
     public class ReviewsController : Controller
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
         private readonly IReviewService reviewService;
 
-        public ReviewsController(GoodreadsDbContext dbContext, IReviewService reviewService)
+        public ReviewsController(DecentReadsDbContext dbContext, IReviewService reviewService)
         {
             this.dbContext = dbContext;
             this.reviewService = reviewService;

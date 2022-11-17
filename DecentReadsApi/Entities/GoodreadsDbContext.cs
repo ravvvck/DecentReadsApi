@@ -2,9 +2,9 @@
 
 namespace DecentReadsApi.Entities
 {
-    public class GoodreadsDbContext : DbContext
+    public class DecentReadsDbContext : DbContext
     {
-        public GoodreadsDbContext(DbContextOptions<GoodreadsDbContext> options): base(options)
+        public DecentReadsDbContext(DbContextOptions<DecentReadsDbContext> options): base(options)
         {
 
         }

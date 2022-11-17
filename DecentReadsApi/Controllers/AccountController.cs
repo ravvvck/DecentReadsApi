@@ -16,9 +16,9 @@ namespace DecentReadsApi.Controllers
     {
         private readonly IAccountService accountService;
         private readonly IHttpContextAccessor httpContextAccessor;
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
 
-        public AccountController(IAccountService accountService, IHttpContextAccessor httpContextAccessor, GoodreadsDbContext dbContext)
+        public AccountController(IAccountService accountService, IHttpContextAccessor httpContextAccessor, DecentReadsDbContext dbContext)
         {
             this.accountService = accountService;
             this.httpContextAccessor = httpContextAccessor;

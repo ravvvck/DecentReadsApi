@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DecentReadsApi.Migrations
 {
-    [DbContext(typeof(GoodreadsDbContext))]
+    [DbContext(typeof(DecentReadsDbContext))]
     [Migration("20221030211210_Initialize")]
     partial class Initialize
     {

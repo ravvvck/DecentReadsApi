@@ -28,13 +28,13 @@ namespace DecentReadsApi.Tests
                     builder.ConfigureServices(services =>
                     {
                         var dbContextOptions = services
-                        .SingleOrDefault(service => service.ServiceType == typeof(DbContextOptions<GoodreadsDbContext>));
+                        .SingleOrDefault(service => service.ServiceType == typeof(DbContextOptions<DecentReadsDbContext>));
                         services.Remove(dbContextOptions);
 
                         services.AddSingleton<IPolicyEvaluator, FakePolicyEvaluator>();
                         services.AddMvc(option => option.Filters.Add(new FakeUserFilter()));
 
-                        services.AddDbContext<GoodreadsDbContext>(options => options.UseInMemoryDatabase("GoodreadsDb"));
+                        services.AddDbContext<DecentReadsDbContext>(options => options.UseInMemoryDatabase("GoodreadsDb"));
                     });
                 }).CreateClient();
 
@@ -108,7 +108,7 @@ namespace DecentReadsApi.Tests
 
             var scopeFactory = _factory.Services.GetService<IServiceScopeFactory>();
             using IServiceScope? scope = scopeFactory.CreateScope();
-            var _dbContext = scope.ServiceProvider.GetService<GoodreadsDbContext>();
+            var _dbContext = scope.ServiceProvider.GetService<DecentReadsDbContext>();
             _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
 

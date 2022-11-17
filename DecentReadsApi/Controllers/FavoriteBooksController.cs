@@ -13,7 +13,7 @@ namespace DecentReadsApi.Controllers
     {
         private readonly IFavoriteBookService bookService;
 
-        public FavoriteBooksController(GoodreadsDbContext dbContext, IFavoriteBookService bookService)
+        public FavoriteBooksController(DecentReadsDbContext dbContext, IFavoriteBookService bookService)
         {
             this.bookService = bookService;
         }

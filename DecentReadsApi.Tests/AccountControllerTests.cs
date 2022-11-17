@@ -20,12 +20,12 @@ namespace DecentReadsApi.Tests
                     builder.ConfigureServices(services =>
                     {
                         var dbContextOptions = services
-                        .SingleOrDefault(service => service.ServiceType == typeof(DbContextOptions<GoodreadsDbContext>));
+                        .SingleOrDefault(service => service.ServiceType == typeof(DbContextOptions<DecentReadsDbContext>));
                         services.Remove(dbContextOptions);
 
                         
 
-                        services.AddDbContext<GoodreadsDbContext>(options => options.UseInMemoryDatabase("GoodreadsDb"));
+                        services.AddDbContext<DecentReadsDbContext>(options => options.UseInMemoryDatabase("GoodreadsDb"));
                     });
                 }).CreateClient();
         }

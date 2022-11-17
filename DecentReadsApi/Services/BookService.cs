@@ -20,11 +20,11 @@ namespace DecentReadsApi.Services
 
     public class BookService : IBookService
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ILogger<BookService> logger;
 
-        public BookService(GoodreadsDbContext dbContext, IMapper mapper, ILogger<BookService> logger)
+        public BookService(DecentReadsDbContext dbContext, IMapper mapper, ILogger<BookService> logger)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;

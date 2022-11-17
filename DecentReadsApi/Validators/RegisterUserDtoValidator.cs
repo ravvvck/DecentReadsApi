@@ -6,9 +6,9 @@ namespace DecentReadsApi.Validators
 {
     public class RegisterUserDtoValidator : AbstractValidator<RegisterUserDto>
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
 
-        public RegisterUserDtoValidator(GoodreadsDbContext dbContext)
+        public RegisterUserDtoValidator(DecentReadsDbContext dbContext)
         {
 
             RuleFor(x => x.Username).MinimumLength(3).MaximumLength(25);

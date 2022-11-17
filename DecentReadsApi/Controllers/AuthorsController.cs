@@ -12,10 +12,10 @@ namespace DecentReadsApi.Controllers
 
     public class AuthorsController : Controller
     {
-        private readonly GoodreadsDbContext dbContext;
+        private readonly DecentReadsDbContext dbContext;
         private readonly IAuthorService authorService;
 
-        public AuthorsController(GoodreadsDbContext dbContext, IAuthorService authorService)
+        public AuthorsController(DecentReadsDbContext dbContext, IAuthorService authorService)
         {
             this.dbContext = dbContext;
             this.authorService = authorService;

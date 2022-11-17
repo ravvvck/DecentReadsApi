@@ -6,8 +6,8 @@ namespace DecentReadsApi.Validators
 {
     public class CreateBookDtoValidator : AbstractValidator<CreateBookDto>
     {
-        private readonly GoodreadsDbContext dbContext;
-        public CreateBookDtoValidator(GoodreadsDbContext dbContext)
+        private readonly DecentReadsDbContext dbContext;
+        public CreateBookDtoValidator(DecentReadsDbContext dbContext)
         {
             RuleFor(x => x.Name).MinimumLength(1).MaximumLength(50);
             RuleFor(x => x.AuthorLastName).NotNull();

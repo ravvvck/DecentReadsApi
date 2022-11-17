@@ -20,7 +20,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DecentReadsSeeder>();
-builder.Services.AddDbContext<GoodreadsDbContext>();
+builder.Services.AddDbContext<DecentReadsDbContext>();
 builder.Services.AddScoped<BookService>();
 
 builder.Services.AddScoped<IBookService, BookService>();

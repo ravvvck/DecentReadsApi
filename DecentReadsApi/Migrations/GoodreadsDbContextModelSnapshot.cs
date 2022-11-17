@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DecentReadsApi.Migrations
 {
-    [DbContext(typeof(GoodreadsDbContext))]
-    partial class GoodreadsDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DecentReadsDbContext))]
+    partial class DecentReadsDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
