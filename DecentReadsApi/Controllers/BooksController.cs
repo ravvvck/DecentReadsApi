@@ -26,7 +26,6 @@ namespace DecentReadsApi.Controllers
         }
 
         [AllowAnonymous]
-        //[Authorize(Roles = "User, Admin, Librarian")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookDto>>> GetAll()
         {
@@ -105,40 +104,7 @@ namespace DecentReadsApi.Controllers
             }
         }
 
-        [Authorize(Roles = "User, Admin, Librarian")]
-        [HttpPost("favorite/{bookId}")]
-        public ActionResult AddToFavorites([FromRoute] int bookId)
-        {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-            bookService.AddToFavorites(bookId, userId);
-            return Ok();
-        }
-
-        
-        /*[HttpGet("favorite/{bookId}")]
-        public ActionResult GetFavoriteBooksByBookId([FromRoute] int bookId)
-        {
-            var result = bookService.GetFavoriteBooksByBookId(bookId);
-            return Ok(result);
-        }*/
-
-        [Authorize]
-        [HttpGet("favorite")]
-        public async Task<ActionResult<List<FavoriteBookDto>>> GetFavoriteBooksByUserId()
-        {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-            var result = await bookService.GetFavoriteBooksByUserId(userId);
-            return Ok(result);
-        }
-
-        [Authorize]
-        [HttpDelete("favorite/{bookId}")]
-        public ActionResult DeleteFromFavorites([FromRoute]int bookId)
-        {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-            bookService.DeleteFromFavorites(bookId, userId);
-            return Ok();
-        }
+       
 
 
 

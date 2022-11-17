@@ -24,6 +24,8 @@ builder.Services.AddDbContext<GoodreadsDbContext>();
 builder.Services.AddScoped<BookService>();
 
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IFavoriteBookService, FavoriteBookService>();
+
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
