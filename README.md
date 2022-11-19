@@ -4,10 +4,9 @@ Frontend can be found [here](https://github.com/ravvvck/DecentReadsFrontend).
 
 ## Features
 - CRUD operations for books, authors and user entities
-- Some operations are restricted by role policy
-- Users can give books a review and add them to their favorites list
-- Authorization is persisted using refresh token
+- Authorization is persisted using JWT and refresh tokens
 - Validation for every request
+- Global error handling middleware
 
  **To Do:**
 - Social functionalities (messages between users, discussion forums)
@@ -23,3 +22,4 @@ Frontend can be found [here](https://github.com/ravvvck/DecentReadsFrontend).
 - Built-in Swagger via [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 
 
+![swagger](https://user-images.githubusercontent.com/73526574/202506785-faa42acc-2f37-4c7c-80d8-ccdd5de2e598.png)
