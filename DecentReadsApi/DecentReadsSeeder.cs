@@ -13,7 +13,9 @@ namespace DecentReadsApi
 
         public void Seed()
         {
-            if(dbContext.Database.CanConnect())
+           
+
+            if (dbContext.Database.CanConnect())
             {
 
                 if (!dbContext.Roles.Any())

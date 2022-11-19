@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DecentReadsApi.Migrations
 {
     [DbContext(typeof(DecentReadsDbContext))]
-    [Migration("20221031112546_6")]
-    partial class _6
+    [Migration("20221119175642_44")]
+    partial class _44
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,11 +57,6 @@ namespace DecentReadsApi.Migrations
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
-
-                    b.Property<double>("AvgRate")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("float")
-                        .HasComputedColumnSql("dbo.CalcAvgRatingByBookId([Id])");
 
                     b.Property<string>("Description")
                         .IsRequired()

@@ -11,9 +11,7 @@ namespace DecentReadsApi.Entities
         public virtual Author Author { get; set; }
         public DateTime PublishedDate { get; set; }
         public int NumberOfPages { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public double AvgRate { get; set; }
-
+ 
 
     }
 }

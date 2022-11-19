@@ -4,7 +4,7 @@
 
 namespace DecentReadsApi.Migrations
 {
-    public partial class _2 : Migration
+    public partial class _44 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

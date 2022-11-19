@@ -9,7 +9,9 @@ namespace DecentReadsApi.Entities
 
         }
 
-        private string _connectionString = "Server=DESKTOP-DQ5BFKA\\SQLEXPRESS;Database=GoodreadsDb;Trusted_Connection=True;";
+        private string _connectionString = "Server=DESKTOP-DQ5BFKA\\SQLEXPRESS;Database=GoodreadsDb;Trusted_Connection=True";
+
+
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<User> Users { get; set; }
@@ -27,9 +29,6 @@ namespace DecentReadsApi.Entities
                 .IsRequired()
                 .HasMaxLength(50);
 
-            modelBuilder.Entity<Book>()
-              .Property(u => u.AvgRate)
-              .HasComputedColumnSql($"dbo.CalcAvgRatingByBookId2([Id])");
 
 
             modelBuilder.Entity<Author>()
@@ -47,10 +46,7 @@ namespace DecentReadsApi.Entities
           .Property(e => e.Name)
           .IsRequired();
 
-            /*modelBuilder.Entity<User>()
-          .Property(e => e.FavoriteBooksIds)
-          .HasForeignKey(b => b.BookId);*/
-
+   
         }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

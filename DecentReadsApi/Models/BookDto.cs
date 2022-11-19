@@ -12,6 +12,5 @@ namespace DecentReadsApi.Models
 
         public DateTime PublishedDate { get; set; }
         public int NumberOfPages { get; set; }
-        public double AvgRate { get; set; }
     }
 }

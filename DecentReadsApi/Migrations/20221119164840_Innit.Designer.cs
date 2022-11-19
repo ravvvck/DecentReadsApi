@@ -4,6 +4,7 @@ using DecentReadsApi.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DecentReadsApi.Migrations
 {
     [DbContext(typeof(DecentReadsDbContext))]
-    partial class DecentReadsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221119164840_Innit")]
+    partial class Innit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,11 +57,6 @@ namespace DecentReadsApi.Migrations
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
-
-                    b.Property<double>("AvgRate")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("float")
-                        .HasComputedColumnSql("dbo.CalcAvgRatingByBookId([Id])");
 
                     b.Property<string>("Description")
                         .IsRequired()

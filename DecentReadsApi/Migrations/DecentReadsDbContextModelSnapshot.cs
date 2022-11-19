@@ -4,7 +4,6 @@ using DecentReadsApi.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,10 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DecentReadsApi.Migrations
 {
     [DbContext(typeof(DecentReadsDbContext))]
-    [Migration("20221030211210_Initialize")]
-    partial class Initialize
+    partial class DecentReadsDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,13 +89,17 @@ namespace DecentReadsApi.Migrations
                     b.Property<DateTime>("Added")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("AddedBy")
-                        .HasColumnType("int");
-
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("FavoriteBooks");
                 });
@@ -202,10 +204,29 @@ namespace DecentReadsApi.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("DecentReadsApi.Entities.FavoriteBook", b =>
+                {
+                    b.HasOne("DecentReadsApi.Entities.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DecentReadsApi.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DecentReadsApi.Entities.Review", b =>
                 {
                     b.HasOne("DecentReadsApi.Entities.Book", "Book")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -222,11 +243,6 @@ namespace DecentReadsApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("DecentReadsApi.Entities.Book", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

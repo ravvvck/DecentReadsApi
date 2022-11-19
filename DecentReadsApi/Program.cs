@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using NLog.Web;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var authenticationSettings = new AuthenticationSettings();
@@ -36,8 +37,18 @@ builder.Services.AddScoped<IValidator<CreateBookDto>, CreateBookDtoValidator>();
 
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
-
+//Console.WriteLine(System.Reflection.Assembly.GetEntryAssembly().GetName().Name);
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+
+/*var counter = 0;
+var max = args.Length != 0 ? Convert.ToInt32(args[0]) : -1;
+while (max == -1 || counter < max)
+{
+    Console.WriteLine($"Counter: {++counter}");
+    await Task.Delay(TimeSpan.FromMilliseconds(1_000));
+}
+*/
 
 builder.Services.AddCors(options =>
 {
@@ -86,6 +97,10 @@ if (app.Environment.IsDevelopment())
 }
 seeder.Seed();
 
+
+
+
+
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("FrontEndClient");
@@ -93,6 +108,8 @@ app.UseCors("FrontEndClient");
 app.UseAuthorization();
 
 app.MapControllers();
+
+
 
 app.Run();
 
