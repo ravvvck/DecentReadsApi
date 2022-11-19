@@ -23,3 +23,11 @@ Frontend can be found [here](https://github.com/ravvvck/DecentReadsFrontend).
 
 
 ![swagger](https://user-images.githubusercontent.com/73526574/202506785-faa42acc-2f37-4c7c-80d8-ccdd5de2e598.png)
+
+
+## Docker
+You can start this project with the command
+```console
+docker-compose up
+```
+The application runs at `http://localhost:8080/swagger`
